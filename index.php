@@ -78,6 +78,7 @@ if (isset ($_POST ['convertir']))
     $ConDe = $_POST ['ConDe'];
     $a = $_POST['a'];
 
+    //PARA DOLAR
     if ($ConDe == 'USD' AND $a == 'EUR') 
     {
         echo  $cantidad*0.88 . "€";
@@ -87,6 +88,80 @@ if (isset ($_POST ['convertir']))
     {
         echo  $cantidad*0.74 . "£";
     }
+
+    if ($ConDe == 'USD' AND $a == 'YEN') 
+    {
+        echo  $cantidad*115.15 . "¥";
+    }
+
+    if ($ConDe == 'USD' AND $a == 'USD') 
+    {
+        echo "$".  $cantidad*1;
+    }
+
+    //PARA EURO
+    if ($ConDe == 'EUR' AND $a == 'USD') 
+    {
+        echo  "$". $cantidad*1.13;
+    }
+
+    if ($ConDe == 'EUR' AND $a == 'GBP') 
+    {
+        echo  $cantidad*0.84 . "£";
+    }
+
+    if ($ConDe == 'EUR' AND $a == 'YEN') 
+    {
+        echo  $cantidad*130.51 . "¥";
+    }
+
+    if ($ConDe == 'EUR' AND $a == 'EUR') 
+    {
+        echo   $cantidad*1 . "€";
+    }
+
+    //PARA LIBRA
+    if ($ConDe == 'GBP' AND $a == 'USD') 
+    {
+        echo  "$". $cantidad*1.36;
+    }
+
+    if ($ConDe == 'GBP' AND $a == 'EUR') 
+    {
+        echo  $cantidad*1.20 . "£";
+    }
+
+    if ($ConDe == 'GBP' AND $a == 'YEN') 
+    {
+        echo  $cantidad*130.51 . "¥";
+    }
+
+    if ($ConDe == 'GBP' AND $a == 'GBP') 
+    {
+        echo   $cantidad*1 . "£";
+    }
+
+    //PARA YEN
+    if ($ConDe == 'YEN' AND $a == 'USD') 
+    {
+        echo  "$". $cantidad*0.0087;
+    }
+
+    if ($ConDe == 'YEN' AND $a == 'EUR') 
+    {
+        echo  $cantidad*0.0077. "£";
+    }
+
+    if ($ConDe == 'YEN' AND $a == 'GBP') 
+    {
+        echo  $cantidad*0.0064 . "¥";
+    }
+
+    if ($ConDe == 'YEN' AND $a == 'YEN') 
+    {
+        echo   $cantidad*1 . "¥";
+    }
+
 
 }
 
