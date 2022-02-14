@@ -92,22 +92,4 @@ if (isset ($_POST ['convertir']))
 
 
 
-
-
-
-
-
-/*if ($cbxconver = "Euro") 
-{
-
-   $txt1 = $_POST['txt1'];
-
-   $euro = ((double)$txt1*0.88);
-   $yen = ((double)$txt1*115.37);
-   $libra = ((double)$txt1*0.74);
-
-   echo "Euro: $euro Yen: $yen Libra: $libra";
-
-}*/
-
 ?>
