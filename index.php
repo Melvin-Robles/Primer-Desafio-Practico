@@ -19,7 +19,7 @@
 </header>
 
 <section>
-    <article>
+   <div id="formulario">
                 <form action="index.php" method="post"> 
                 <table>
                 <tr>
@@ -31,10 +31,10 @@
                     <td><b>Convertir de:</b></td>
                     <td>
                         <select name="ConDe">
-                            <option>USD</option>
-                            <option>EUR</option>
-                            <option>YEN</option>
-                            <option>GBP</option>
+                            <option>Dolares</option>
+                            <option>Euros</option>
+                            <option>Yen_Japones</option>
+                            <option>Libra_Esterlina</option>
                         </select>
                     </td>
                 </tr>
@@ -43,10 +43,10 @@
                     <td><b>a:</b></td>
                     <td>
                         <select name="a">
-                            <option>EUR</option>
-                            <option>GBP</option>
-                            <option>YEN</option>
-                            <option>USD</option>
+                            <option>Euros</option>
+                            <option>Libra_Esterlina</option>
+                            <option>Yen_Japones</option>
+                            <option>Dolares</option>
                         </select>
                     </td>
                 </tr>
@@ -59,14 +59,14 @@
 
                 </table>
                 </form>
-      
-   </article>
+                </div>
 </section>
 
 
 
 </body>
 </html>
+
 
 <?php
 
@@ -79,92 +79,107 @@ if (isset ($_POST ['convertir']))
     $a = $_POST['a'];
 
     //PARA DOLAR
-    if ($ConDe == 'USD' AND $a == 'EUR') 
+    if ($ConDe == 'Dolares' AND $a == 'Euros') 
     {
+        echo "<br><center><b style='background-color: rgb(162, 209, 108); padding: 10px;'>";
         echo  $cantidad*0.88 . "€";
     }
 
-    if ($ConDe == 'USD' AND $a == 'GBP') 
+    if ($ConDe == 'Dolares' AND $a == 'Libra_Esterlina') 
     {
+        echo "<br><center><b style='background-color: rgb(162, 209, 108); padding: 10px;'>";
         echo  $cantidad*0.74 . "£";
     }
 
-    if ($ConDe == 'USD' AND $a == 'YEN') 
+    if ($ConDe == 'Dolares' AND $a == 'Yen_Japones') 
     {
+        echo "<br><center><b style='background-color: rgb(162, 209, 108); padding: 10px;'>";
         echo  $cantidad*115.15 . "¥";
     }
 
-    if ($ConDe == 'USD' AND $a == 'USD') 
+    if ($ConDe == 'Dolares' AND $a == 'Dolares') 
     {
+        echo "<br><center><b style='background-color: rgb(162, 209, 108); padding: 10px;'>";
         echo "$".  $cantidad*1;
     }
 
-    //PARA EURO
-    if ($ConDe == 'EUR' AND $a == 'USD') 
+    //PARA EurosO
+    if ($ConDe == 'Euros' AND $a == 'Dolares') 
     {
+        echo "<br><center><b style='background-color: rgb(162, 209, 108); padding: 10px;'>";
         echo  "$". $cantidad*1.13;
     }
 
-    if ($ConDe == 'EUR' AND $a == 'GBP') 
+    if ($ConDe == 'Euros' AND $a == 'Libra_Esterlina') 
     {
+        echo "<br><center><b style='background-color: rgb(162, 209, 108); padding: 10px;'>";
         echo  $cantidad*0.84 . "£";
     }
 
-    if ($ConDe == 'EUR' AND $a == 'YEN') 
+    if ($ConDe == 'Euros' AND $a == 'Yen_Japones') 
     {
+        echo "<br><center><b style='background-color: rgb(162, 209, 108); padding: 10px;'>";
         echo  $cantidad*130.51 . "¥";
     }
 
-    if ($ConDe == 'EUR' AND $a == 'EUR') 
+    if ($ConDe == 'Euros' AND $a == 'Euros') 
     {
+        echo "<br><center><b style='background-color: rgb(162, 209, 108); padding: 10px;'>";
         echo   $cantidad*1 . "€";
     }
 
     //PARA LIBRA
-    if ($ConDe == 'GBP' AND $a == 'USD') 
+    if ($ConDe == 'Libra_Esterlina' AND $a == 'Dolares') 
     {
+        echo "<br><center><b style='background-color: rgb(162, 209, 108); padding: 10px;'>";
         echo  "$". $cantidad*1.36;
     }
 
-    if ($ConDe == 'GBP' AND $a == 'EUR') 
+    if ($ConDe == 'Libra_Esterlina' AND $a == 'Euros') 
     {
+        echo "<br><center><b style='background-color: rgb(162, 209, 108); padding: 10px;'>";
         echo  $cantidad*1.20 . "£";
     }
 
-    if ($ConDe == 'GBP' AND $a == 'YEN') 
+    if ($ConDe == 'Libra_Esterlina' AND $a == 'Yen_Japones') 
     {
+        echo "<br><center><b style='background-color: rgb(162, 209, 108); padding: 10px;'>";
         echo  $cantidad*130.51 . "¥";
     }
 
-    if ($ConDe == 'GBP' AND $a == 'GBP') 
+    if ($ConDe == 'Libra_Esterlina' AND $a == 'Libra_Esterlina') 
     {
+        echo "<br><center><b style='background-color: rgb(162, 209, 108); padding: 10px;'>";
         echo   $cantidad*1 . "£";
     }
 
-    //PARA YEN
-    if ($ConDe == 'YEN' AND $a == 'USD') 
+    //PARA Yen_Japones
+    if ($ConDe == 'Yen_Japones' AND $a == 'Dolares') 
     {
+        echo "<br><center><b style='background-color: rgb(162, 209, 108); padding: 10px;'>";
         echo  "$". $cantidad*0.0087;
     }
 
-    if ($ConDe == 'YEN' AND $a == 'EUR') 
+    if ($ConDe == 'Yen_Japones' AND $a == 'Euros') 
     {
+        echo "<br><center><b style='background-color: rgb(162, 209, 108); padding: 10px;'>";
         echo  $cantidad*0.0077. "£";
     }
 
-    if ($ConDe == 'YEN' AND $a == 'GBP') 
+    if ($ConDe == 'Yen_Japones' AND $a == 'Libra_Esterlina') 
     {
+        echo "<br><center><b style='background-color: rgb(162, 209, 108); padding: 10px;'>";
         echo  $cantidad*0.0064 . "¥";
     }
 
-    if ($ConDe == 'YEN' AND $a == 'YEN') 
+    if ($ConDe == 'Yen_Japones' AND $a == 'Yen_Japones') 
     {
+        echo "<br><center><b style='background-color: rgb(162, 209, 108); padding: 10px;'>";
         echo   $cantidad*1 . "¥";
     }
 
 
 }
-
 
 
 ?>
