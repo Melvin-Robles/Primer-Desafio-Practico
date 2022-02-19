@@ -166,6 +166,38 @@
                                             $cont++;
                                         }
                                     }
+                                    else if($sis_amo == "sis_americano"){
+
+                                        $interes_n = $importe*$interes;
+                                        $cuota_n = $interes_n;
+                                        $saldo = $importe;
+                                        $capital_n = 0;
+
+                                        $cont = 1;
+                                        while($cont <= $plazo){
+    
+                                            $fecha = date('d-m-Y', strtotime($fecha.$periodo));
+                                            if($cont == $plazo){
+                                                $cuota_n = $importe + $interes_n;
+                                                $capital_n = $importe;
+                                                $saldo -= $capital_n;
+                                            }
+                                        
+                                            if($cont % 2 == 0){
+                                                echo "\t<tr>\n";
+                                            } else {
+                                                echo "\t<tr class=\"odd\">\n";
+                                            }
+                                            
+                                            echo "\t\t<td>\n" . $fecha . "\n</td>\n";
+                                            echo "\t\t<td>\n" . number_format($cuota_n, 2) . "\n</td>";
+                                            echo "\t\t<td>\n" . number_format($capital_n, 2) . "\n</td>";
+                                            echo "\t\t<td>\n" . number_format($interes_n, 2) . "\n</td>";
+                                            echo "\t\t<td>\n" . number_format($saldo, 2) . "\n</td>";
+                                            echo "\t</tr>\n";
+                                            $cont++;
+                                        }
+                                    }
                                     
                                 }else{
                                     echo "<script>
