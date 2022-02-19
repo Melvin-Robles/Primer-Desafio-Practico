@@ -31,9 +31,11 @@
                                 //Accediendo a los datos del formulario usando la funcion extract()
                                 extract($_POST);
                                 
+                                
                                 if(!empty($sis_amo) && !empty($fecha) && !empty($importe) && !empty($periodo) && !empty($interes) && !empty($plazo) && !empty($sis_amo)){
+                                    $interes = $interes/100;
                                     if($sis_amo == "sis_simple"){
-                                        $interes_n = number_format($importe*$interes/100, 2);
+                                        $interes_n = number_format($importe*$interes, 2);
                                         $capital_n = number_format($importe/$plazo, 2);
                                         $cuota_n = number_format($capital_n + $interes_n, 2);
                                         $cont = 1;
@@ -67,7 +69,7 @@
                                         $cont = 0;
                                         while($cont < $plazo){
                                             
-                                            $interes_n = number_format($interes*$importetotal/100, 2);
+                                            $interes_n = number_format($interes*$importetotal, 2);
                                             $cuota_n = number_format($capital_n + $interes_n, 2);
                                             $saldo = number_format($importe - (($cont + 1) * $capital_n), 2);
                                             
@@ -86,6 +88,36 @@
                                             echo "\t</tr>\n";
                                             $importetotal += $interes_n;
                                             //$saldo += $interes_n; Realmente debía irse sumando al saldo
+                                            $fecha = date('d-m-Y', strtotime($fecha.$periodo));
+                                            $cont++;
+                                        }
+                                    }
+                                    else if ($sis_amo == "sis_frances"){
+
+                                        $cuota_n = $importe*$interes/(1 - pow(1 + $interes, -$plazo));
+                                        $saldo = $importe;
+
+                                        $cont = 1;
+                                        $fecha = date('d-m-Y', strtotime($fecha."+ 0 days"));
+                                        while($cont <= $plazo){
+    
+                                            $interes_n = $saldo*$interes;
+                                            $capital_n = $cuota_n - $interes_n;
+                                            $saldo = $saldo - $capital_n;
+                                            
+                                        
+                                            if($cont % 2 == 0){
+                                                echo "\t<tr>\n";
+                                            } else {
+                                                echo "\t<tr class=\"odd\">\n";
+                                            }
+                                            
+                                            echo "\t\t<td>\n" . $fecha . "\n</td>\n";
+                                            echo "\t\t<td>\n" . number_format($cuota_n, 2) . "\n</td>";
+                                            echo "\t\t<td>\n" . number_format($capital_n, 2) . "\n</td>";
+                                            echo "\t\t<td>\n" . number_format($interes_n, 2) . "\n</td>";
+                                            echo "\t\t<td>\n" . number_format($saldo, 2) . "\n</td>";
+                                            echo "\t</tr>\n";
                                             $fecha = date('d-m-Y', strtotime($fecha.$periodo));
                                             $cont++;
                                         }

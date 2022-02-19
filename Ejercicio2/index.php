@@ -73,7 +73,7 @@
 
 
 <tr>
-                    <td><b>Interes diario:  </b></td>
+                    <td><b>Interes:  </b></td>
                     <td> <input type="number" name="interes" placeholder="Cantidad"/>  </td>
 </tr> 
 
@@ -99,23 +99,4 @@
 </html>
 
 <?php
-/*
-//Al presiona el boton obtenemos los datos
-
-if (isset ($_POST ['calcular']))
-{
-    //Obtenemos las entradas
-    $sis_amo = $_POST['sis_amo'];
-    $fecha = $_POST ['fecha'];
-    $importe = $_POST['importe'];
-    $periodo = $_POST['periodo'];
-    $interes = $_POST['interes'];
-    $plazo = $_POST['plazo'];
-   
-    $interes_n = number_format($importe*$interes/100, 2);
-    $capital_n = number_format($importe/$plazo, 2);
-    $cuota_n = number_format($capital_n + $interes_n, 2);
-
-}
-*/
 ?>
