@@ -37,8 +37,10 @@
                                         $capital_n = number_format($importe/$plazo, 2);
                                         $cuota_n = number_format($capital_n + $interes_n, 2);
                                         $cont = 1;
+                                        $fecha = date('d-m-Y', strtotime($fecha."+ 0 days"));
                                         while($cont <= $plazo){
     
+                                            
                                             $saldo = number_format($importe - ($cont * $capital_n), 2);
                                         
                                             if($cont % 2 == 0){
@@ -53,23 +55,21 @@
                                             echo "\t\t<td>\n" . $interes_n . "\n</td>";
                                             echo "\t\t<td>\n" . $saldo . "\n</td>";
                                             echo "\t</tr>\n";
+                                            $fecha = date('d-m-Y', strtotime($fecha.$periodo));
                                             $cont++;
                                         }
                                     }
-                                    else{
-                                        $interes_n = number_format($importe*$interes/100, 2);
+                                    else if ($sis_amo == "sis_compuesto"){
                                         $capital_n = number_format($importe/$plazo, 2);
-                                        $cuota_n = number_format($importe * $interes * $plazo, 2);
                                         $importetotal = $importe;
                                         
+                                        $fecha = date('d-m-Y', strtotime($fecha."+ 0 days"));
                                         $cont = 0;
                                         while($cont < $plazo){
                                             
-                                            //$cuota_n = number_format(($capital_n+$interes_n)*pow(1+$interes/100, $cont), 2);
+                                            $interes_n = number_format($interes*$importetotal/100, 2);
                                             $cuota_n = number_format($capital_n + $interes_n, 2);
-                                            //$importetotal += $cuota_n;
                                             $saldo = number_format($importe - (($cont + 1) * $capital_n), 2);
-                                            $interes_n = number_format($interes*$cuota_n, 2);
                                             
                                         
                                             if($cont % 2 == 0){
@@ -84,6 +84,9 @@
                                             echo "\t\t<td>\n" . $interes_n . "\n</td>";
                                             echo "\t\t<td>\n" . $saldo . "\n</td>";
                                             echo "\t</tr>\n";
+                                            $importetotal += $interes_n;
+                                            //$saldo += $interes_n; Realmente debía irse sumando al saldo
+                                            $fecha = date('d-m-Y', strtotime($fecha.$periodo));
                                             $cont++;
                                         }
                                     }

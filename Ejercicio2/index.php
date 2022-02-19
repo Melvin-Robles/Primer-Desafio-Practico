@@ -24,9 +24,11 @@
                     <td><b>Sistema de amortización: </b></td>
                     <td>
                         <select name="sis_amo">
+                            <option value="sis_frances">Sistema francés</option>
+                            <option value="sis_aleman">Sistema alemán</option>
+                            <option value="sis_americano">Sistema americano</option>
                             <option value="sis_simple">Sistema simple: Cuota, amortización e interés fijo</option>
                             <option value="sis_compuesto">Sistema compuesto: Cuota, amortización e interés fijo</option>
-                          
                         </select>
                     </td>
                 </tr>
@@ -58,11 +60,11 @@
                     <td><b>Periodo: </b></td>
                     <td>
                         <select name="periodo">
-                            <option value="per_dia">Diario</option>
-                            <option value="per_sem">Semanal</option>
-                            <option value="per_quin">Quincenal</option>
-                            <option value="per_men">Mensual</option>
-                            <option value="per_an">Anual</option>       
+                            <option value="+ 1 days">Diario</option>
+                            <option value="+ 7 days">Semanal</option>
+                            <option value="+ 15 days">Quincenal</option>
+                            <option value="+ 1 months">Mensual</option>
+                            <option value="+ 1 years">Anual</option>       
                         </select>
                     </td>
                 </tr>
