@@ -37,7 +37,7 @@
 
 
 
-                <label for="start"><b>Fecha:</b></label>
+                <label for="start"><b>Fecha del préstamo:</b></label>
 
                 <input type="date" id="start" name="fecha" value="2022-01-01" min="2000-01-01" max="2050-12-31">
 
