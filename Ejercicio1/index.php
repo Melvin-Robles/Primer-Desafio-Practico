@@ -24,7 +24,7 @@
                 <table>
                 <tr>
                     <td><b>Ingrese la cantidad:  </b></td>
-                    <td> <input type="number" name="cantidad" placeholder="Cantidad"/>  </td>
+                    <td> <input type="decimal" name="cantidad" placeholder="Cantidad"/>  </td>
                 </tr> 
 
                 <tr>

@@ -18,13 +18,14 @@
 
 <!-- Campo Sistema de amortización -->
 <br>
-            <form action="index.php" method="post"> 
+            <form action="procesar.php" method="post"> 
            <table>
                 <tr>
                     <td><b>Sistema de amortización: </b></td>
                     <td>
                         <select name="sis_amo">
                             <option value="sis_simple">Sistema simple: Cuota, amortización e interés fijo</option>
+                            <option value="sis_compuesto">Sistema compuesto: Cuota, amortización e interés fijo</option>
                           
                         </select>
                     </td>
@@ -46,7 +47,7 @@
               
                 <tr>
                     <td><b>Importe del prestamo:  </b></td>
-                    <td> <input type="number" name="prestamo" placeholder="Cantidad"/>  </td>
+                    <td> <input type="number" name="importe" placeholder="Cantidad"/>  </td>
                 </tr> 
                 
 
@@ -86,18 +87,17 @@
 <!-- Boton -->
 <tr>
                     <td>
-                        <input type="submit" name="calcular" value="Calcular" />
+                        <input type="submit" id="enviar" name="submit" value="Enviar" />
                     </td>
 </tr>
 
-</table>
 </form>
 </section> 
 </body>
 </html>
 
 <?php
-
+/*
 //Al presiona el boton obtenemos los datos
 
 if (isset ($_POST ['calcular']))
@@ -105,16 +105,15 @@ if (isset ($_POST ['calcular']))
     //Obtenemos las entradas
     $sis_amo = $_POST['sis_amo'];
     $fecha = $_POST ['fecha'];
-    $prestamos = $_POST['prestamos'];
+    $importe = $_POST['importe'];
     $periodo = $_POST['periodo'];
     $interes = $_POST['interes'];
     $plazo = $_POST['plazo'];
-
-
    
-
-
+    $interes_n = number_format($importe*$interes/100, 2);
+    $capital_n = number_format($importe/$plazo, 2);
+    $cuota_n = number_format($capital_n + $interes_n, 2);
 
 }
-
+*/
 ?>
